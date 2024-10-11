@@ -8,14 +8,14 @@ import javafx.util.Callback;
 import java.util.Optional;
 
 public abstract class Dialog<T> {
-    javafx.scene.control.Dialog<T> dialog = new javafx.scene.control.Dialog<T>();
+    javafx.scene.control.Dialog<T> dialog;
 
     abstract protected GridPane getDialogPane();
 
-    Optional<T> render(String title) {
+    public Optional<T> init(String title) {
+        dialog = new javafx.scene.control.Dialog<>();
         dialog.setTitle(title);
-        ButtonType okButton = new ButtonType("OK", ButtonBar.ButtonData.OK_DONE);
-        dialog.getDialogPane().getButtonTypes().addAll(okButton, ButtonType.CANCEL);
+        dialog.getDialogPane().getButtonTypes().addAll(ButtonType.OK, ButtonType.CANCEL);
 
         dialog.getDialogPane().setContent(this.getDialogPane());
         dialog.setResultConverter(this.getResultConverter());

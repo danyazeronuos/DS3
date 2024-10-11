@@ -4,32 +4,49 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.12" fx:controller="org.zero.ds3.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-    </padding>
+<GridPane xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.zero.ds3.controller.MainController">
+   <MenuBar>
+     <menus>
+       <Menu mnemonicParsing="false" text="Create">
+         <items>
+           <MenuItem mnemonicParsing="false" onAction="#onResidentCreateButtonClick" text="Resident" />
+             <MenuItem mnemonicParsing="false" onAction="#onCityCreateButtonClick" text="City" />
+             <MenuItem mnemonicParsing="false" onAction="#onGroupCreateButtonClick" text="Group" />
+         </items>
+       </Menu>
+       <Menu mnemonicParsing="false" text="Edit">
+         <items>
+           <MenuItem mnemonicParsing="false" text="Delete" />
+         </items>
+       </Menu>
+       <Menu mnemonicParsing="false" text="Help">
+         <items>
+           <MenuItem mnemonicParsing="false" text="About" />
+         </items>
+       </Menu>
+     </menus>
+   </MenuBar>
+    <VBox GridPane.rowIndex="1">
+      <TabPane prefHeight="350" prefWidth="500" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Cities" >
+              <ListView fx:id="cityList">
 
-    <Label fx:id="welcomeText">
-      <graphic>
-         <MenuBar>
-           <menus>
-             <Menu mnemonicParsing="false" text="File">
-               <items>
-                 <MenuItem mnemonicParsing="false" text="Close" />
-               </items>
-             </Menu>
-             <Menu mnemonicParsing="false" text="Edit">
-               <items>
-                 <MenuItem mnemonicParsing="false" text="Delete" />
-               </items>
-             </Menu>
-             <Menu mnemonicParsing="false" text="Help">
-               <items>
-                 <MenuItem mnemonicParsing="false" text="About" />
-               </items>
-             </Menu>
-           </menus>
-         </MenuBar>
-      </graphic></Label>
-    <Button onAction="#onHelloButtonClick" text="Hello!" />
-</VBox>
+              </ListView>
+          </Tab>
+            <Tab text="Residents" >
+                <ListView fx:id="residents">
+
+                </ListView>
+            </Tab>
+        </tabs>
+      </TabPane>
+    </VBox>
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
+</GridPane>

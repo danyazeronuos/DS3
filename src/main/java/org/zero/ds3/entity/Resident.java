@@ -15,6 +15,16 @@ public class Resident {
     @ManyToOne
     @JoinColumn(name = "language")
     private Language language;
+
+    @Override
+    public String toString() {
+        return
+                "id: " + id +
+                ", name: " + name + '\n' +
+                "language: " + language +
+                ", city: " + city.getName();
+    }
+
     @ManyToOne
     @JoinColumn(name = "city")
     private City city;

@@ -17,4 +17,5 @@ public class CityResident {
     @ManyToOne
     @JoinColumn(name = "resident_id")
     private Resident resident;
+    private Short appeared;
 }

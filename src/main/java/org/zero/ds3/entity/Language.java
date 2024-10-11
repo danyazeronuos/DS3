@@ -12,4 +12,9 @@ public class Language {
     @Id
     private Integer id;
     private String title;
+
+    @Override
+    public String toString() {
+        return title;
+    }
 }
